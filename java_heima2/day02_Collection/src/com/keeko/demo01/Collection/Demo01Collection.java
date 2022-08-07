@@ -1,4 +1,4 @@
-package com.keeko.demo.Collection;
+package com.keeko.demo01.Collection;
 
 import java.util.ArrayList;
 import java.util.Collection;
