@@ -52,7 +52,7 @@ public class Demo01Generic {
     private static void show02() {
         ArrayList<String> list = new ArrayList<>();
         list.add("abc");
-        list.add(1); // add(java.lang.String)in ArrayList cannot be applied to (int)
+        // list.add(1); // add(java.lang.String)in ArrayList cannot be applied to (int)
 
         //使用迭代器遍历list集合
         Iterator<String> it = list.iterator();
