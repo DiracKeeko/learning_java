@@ -30,7 +30,7 @@ public class Demo01HashCode {
 
         /*
             String类的哈希值
-                String类重写Obejct类的hashCode方法
+                String类重写了 Obejct类的 hashCode方法
          */
         String s1 = new String("abc");
         String s2 = new String("abc");
@@ -39,5 +39,6 @@ public class Demo01HashCode {
 
         System.out.println("重地".hashCode()); // 1179395
         System.out.println("通话".hashCode()); // 1179395
+        // 上面两个hashCode相同 是一个巧合
     }
 }
