@@ -9,10 +9,11 @@ import java.util.Collections;
 
     注意:
          sort(List<T> list)使用前提
-         被排序的集合里边存储的元素,必须实现Comparable,重写接口中的方法compareTo定义排序的规则
+         被排序的集合里边存储的元素, 1.必须实现Comparable接口
+                                  2.重写接口中的方法compareTo，定义排序的规则
 
     Comparable接口的排序规则:
-        自己(this)-参数:升序
+        自己(this) - 参数: 升序
  */
 public class Demo02Sort {
     public static void main(String[] args) {
@@ -36,5 +37,13 @@ public class Demo02Sort {
         Collections.sort(list02);
         System.out.println(list02);//[a, b, c]
 
+        ArrayList<Person> list03 = new ArrayList<>();
+        list03.add(new Person("张三",18));
+        list03.add(new Person("李四",20));
+        list03.add(new Person("王五",15));
+        System.out.println(list03);//[Person{name='张三', age=18}, Person{name='李四', age=20}, Person{name='王五', age=15}]
+
+        Collections.sort(list03);
+        System.out.println(list03);
     }
 }
