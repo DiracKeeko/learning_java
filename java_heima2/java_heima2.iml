@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/day01/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/day02_Collection/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/day03_ListAndSet/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day04_Map/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
