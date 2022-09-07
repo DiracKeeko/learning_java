@@ -13,14 +13,15 @@ import java.util.Date;
             错误就相当于程序得了一个无法治愈的毛病(癌症,艾滋).必须修改源代码,程序才能继续执行
  */
 public class Demo01Exception {
-    // 第1种处理异常的方式  通过 throws 交给虚拟机来处理。 ↓
+    // Exception 第1种处理异常的方式  通过 throws 交给虚拟机来处理。 ↓
     // 缺点：一旦出问题，抛出异常，中断程序，打印错误信息到控制台
     public static void main(String[] args) /*throws ParseException*/ {
-        //Exception:编译期异常,进行编译(写代码)java程序出现的问题
+        /*
+        // 01 Exception:编译期异常,进行编译(写代码)java程序出现的问题
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//用来格式化日期
         Date date = null;
 
-        // 第2种处理方式, try...catch... ;
+        // Exception 第2种处理方式, try...catch... ;
         // 优点是try catch之后的代码依旧会执行
         try {
             date = sdf.parse("1999-0909");
@@ -28,6 +29,19 @@ public class Demo01Exception {
             e.printStackTrace();
         }
         System.out.println(date);
+        */
+
+        // 02 RuntimeException:运行期异常,java程序运行过程中出现的问题
+        int[] arr = {1, 2, 3};
+        // System.out.println(arr[3]);
+        try {
+            //可能会出现异常的代码
+            System.out.println(arr[3]);
+        } catch (Exception e) {
+            //异常的处理逻辑
+            System.out.println(e);
+        }
+
         System.out.println("后续代码");
     }
 }
