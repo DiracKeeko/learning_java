@@ -32,6 +32,7 @@ public class Demo01Exception {
         */
 
         // 02 RuntimeException:运行期异常,java程序运行过程中出现的问题
+        /*
         int[] arr = {1, 2, 3};
         // System.out.println(arr[3]);
         try {
@@ -41,6 +42,16 @@ public class Demo01Exception {
             //异常的处理逻辑
             System.out.println(e);
         }
+        */
+
+        /*
+            Error:错误  ↓ 以Error结尾
+            OutOfMemoryError: Java heap space
+            内存溢出的错误,创建的数组太大了,超出了给JVM分配的内存
+         */
+        // int[] arr = new int[1024*1024*1024];
+        // 必须修改代码,创建的数组小一点
+        int[] arr = new int[1024*1024];
 
         System.out.println("后续代码");
     }
