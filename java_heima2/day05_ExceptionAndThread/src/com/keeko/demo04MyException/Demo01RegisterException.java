@@ -21,7 +21,7 @@ public class Demo01RegisterException {
     // 1.使用数组保存已经注册过的用户名(数据库)
     static String[] usernames = { "a", "b", "c" };
 
-    public static void main(String[] args) throws RegisterException {
+    public static void main(String[] args) /*throws RegisterException*/ {
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入您要注册的用户名");
 
@@ -31,11 +31,16 @@ public class Demo01RegisterException {
         checkUsername(username);
     }
 
-    public static void checkUsername(String username) throws RegisterException {
+    public static void checkUsername(String username) /*throws RegisterException*/ {
         // 快捷键 username.for + table || enter
         for (String name : usernames) {
             if (name.equals(username)) {
-                throw new RegisterException("该用户已经被注册");
+                try {
+                    throw new RegisterException("该用户已经被注册");
+                } catch (RegisterException e) {
+                    e.printStackTrace();
+                    return; // 结束方法
+                }
             }
         }
         System.out.println("注册成功");
