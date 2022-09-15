@@ -18,7 +18,7 @@ package com.keeko.demo04MyException;
                 交给虚拟机处理(中断处理)
  */
 
-public class RegisterException extends Exception {
+public class RegisterException extends /*Exception*/ RuntimeException {
     // 空参的构造方法
     public RegisterException() {
         super();
