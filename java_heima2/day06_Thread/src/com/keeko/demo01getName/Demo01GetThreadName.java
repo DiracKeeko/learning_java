@@ -21,7 +21,7 @@ public class Demo01GetThreadName {
         Thread-2
         */
 
-        //链式编程
-        // System.out.println(Thread.currentThread().getName());
+        // 链式编程 获取主线程名称 main  必须使用这种方式
+        System.out.println(Thread.currentThread().getName());
     }
 }

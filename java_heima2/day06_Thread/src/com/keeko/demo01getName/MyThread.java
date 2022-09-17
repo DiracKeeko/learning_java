@@ -16,7 +16,17 @@ public class MyThread extends Thread {
     public void run() {
         // 1.使用Thread类中的方法getName()
         // 获取线程名称
-        String name = getName();
-        System.out.println(name);
+        // String name = getName();
+        // System.out.println(name);
+
+        // 2.可以先获取到当前正在执行的线程,使用线程中的方法getName()获取线程的名称
+        // Thread t = Thread.currentThread();
+        // System.out.println(t); //Thread[Thread-0,5,main]
+        // String name = t.getName();
+        // System.out.println(name);
+
+        // 上面四行 改为链式编程
+        System.out.println(Thread.currentThread().getName());
+
     }
 }
