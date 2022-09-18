@@ -6,5 +6,8 @@ public class Demo01SetThreadName {
         MyThread mt = new MyThread();
         mt.setName("A1");
         mt.start(); // A1
+
+        // 开启多线程
+        new MyThread("B2").start(); // B2
     }
 }
