@@ -16,17 +16,46 @@ package com.keeko.demo08Synchronized;
  */
 public class RunnableImpl implements Runnable {
     //定义一个多个线程共享的票源
-    private int ticket = 30;
+    private static int ticket = 30;
 
 
     //设置线程任务:卖票
     @Override
     public void run() {
+        System.out.println("this:" + this);//this:com.itheima.demo08.Synchronized.RunnableImpl@58ceff1
         //使用死循环,让卖票操作重复执行
         while (true) {
-            payTicket();
+            payTicketStatic();
         }
     }
+
+    /*
+        静态的同步方法
+
+        锁对象是谁?
+        不能是this
+        this是创建对象之后产生的,静态方法优先于对象
+
+        静态方法的锁对象是本类的class属性 -> class文件对象(反射)
+     */
+    public /*synchronized */ void payTicketStatic() {
+        synchronized (RunnableImpl.class) {
+            //先判断票是否存在
+            if (ticket > 0) {
+                //提高安全问题出现的概率,让程序睡眠
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                //票存在,卖票 ticket--
+                System.out.println(Thread.currentThread().getName() + "-->正在卖第" + ticket + "张票");
+                ticket--;
+            }
+        }
+    }
+
     /*
         定义一个同步方法
 
