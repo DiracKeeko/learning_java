@@ -39,7 +39,7 @@ public class BaoZiPu extends Thread {
     // 设置线程任务(run) 生产包子
     @Override
     public void run() {
-        // 必须同时同步技术保证两个线程只能有一个在执行
+        // 必须使用同步技术保证两个线程只能有一个在执行
 
         int count = 0;
 
