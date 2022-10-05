@@ -21,6 +21,8 @@ public class Demo01Calculator {
             return a + b;
         });
 
+        // 优化省略 Lambda
+        invokeCalc(100, 200, (a, b) -> a + b);
     }
 
     /*

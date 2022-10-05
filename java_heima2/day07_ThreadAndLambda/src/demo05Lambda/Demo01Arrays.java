@@ -30,6 +30,9 @@ public class Demo01Arrays {
             return o1.getAge() - o2.getAge();
         });
 
+        // 优化省略 Lambda
+        Arrays.sort(arr, (o1, o2) -> o1.getAge() - o2.getAge());
+
         //遍历数组
         for (Person p : arr) {
             System.out.println(p);
