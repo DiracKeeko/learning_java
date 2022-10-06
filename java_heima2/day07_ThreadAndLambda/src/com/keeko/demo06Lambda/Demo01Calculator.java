@@ -1,4 +1,4 @@
-package demo06Lambda;
+package com.keeko.demo06Lambda;
 
 /*
     Lambda表达式有参数有返回值的练习

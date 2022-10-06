@@ -1,4 +1,4 @@
-package demo04Lambda;
+package com.keeko.demo04Lambda;
 
 /*
     需求:

@@ -1,4 +1,4 @@
-package demo01WaitAndNotify;
+package com.keeko.demo01WaitAndNotify;
     /*
     测试类:
         包含main方法,程序执行的入口,启动程序

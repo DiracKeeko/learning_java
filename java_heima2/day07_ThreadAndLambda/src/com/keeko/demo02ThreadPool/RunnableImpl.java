@@ -1,4 +1,4 @@
-package demo02ThreadPool;
+package com.keeko.demo02ThreadPool;
 
 /*
     2.创建一个类,实现Runnable接口,重写run方法,设置线程任务

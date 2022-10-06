@@ -1,4 +1,4 @@
-package demo05Lambda;
+package com.keeko.demo05Lambda;
 
 
 public class Person {

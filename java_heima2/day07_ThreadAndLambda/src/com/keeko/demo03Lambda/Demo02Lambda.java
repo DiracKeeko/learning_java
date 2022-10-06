@@ -1,4 +1,4 @@
-package demo03Lambda;
+package com.keeko.demo03Lambda;
 
 /*
     Lambda表达式的标准格式:

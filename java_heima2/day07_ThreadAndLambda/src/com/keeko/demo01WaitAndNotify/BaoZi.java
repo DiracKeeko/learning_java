@@ -1,4 +1,4 @@
-package demo01WaitAndNotify;
+package com.keeko.demo01WaitAndNotify;
 
 /*
 * 资源类： 包子类

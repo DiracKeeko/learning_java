@@ -1,4 +1,4 @@
-package demo07Lambda;
+package com.keeko.demo07Lambda;
 
 import java.util.ArrayList;
 

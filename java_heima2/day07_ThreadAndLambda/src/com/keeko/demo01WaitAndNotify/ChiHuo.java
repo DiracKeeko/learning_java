@@ -1,4 +1,4 @@
-package demo01WaitAndNotify;
+package com.keeko.demo01WaitAndNotify;
 
     /*
     消费者(吃货)类:是一个线程类,可以继承Thread
@@ -14,8 +14,6 @@ package demo01WaitAndNotify;
         修改包子的状态为false没有
         吃货唤醒包子铺线程,生产包子
     */
-
-import java.sql.SQLOutput;
 
 public class ChiHuo extends Thread {
     // 1.需要在成员位置创建-一个包子变量

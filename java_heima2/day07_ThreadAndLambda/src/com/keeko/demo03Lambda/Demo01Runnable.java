@@ -1,4 +1,4 @@
-package demo03Lambda;
+package com.keeko.demo03Lambda;
 
 /*
     使用实现Runnable接口的方式实现多线程程序

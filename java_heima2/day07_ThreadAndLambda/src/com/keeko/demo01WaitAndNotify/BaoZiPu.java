@@ -1,4 +1,4 @@
-package demo01WaitAndNotify;
+package com.keeko.demo01WaitAndNotify;
     /*
 
     生产者(包子铺)类:是-个线程类,可以继承Thread
