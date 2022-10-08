@@ -31,9 +31,9 @@ public class Demo02File {
         // show02("d:\\","a.txt"); // d:\a.txt
         show03();
 
-        File f = new File("C:\\Users\\itcast\\IdeaProjects\\shungyuan");
+        File f = new File("D:\\git\\learning_java\\java_heima2\\a.txt");
         long length = f.length();
-        System.out.println(length);
+        System.out.println("length ->" + length);
     }
 
     /*
