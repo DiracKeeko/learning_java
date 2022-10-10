@@ -53,19 +53,19 @@ public class Demo04File {
         File f1 = new File("D:\\git\\learning_java\\java_hei");
 
         //不存在,就没有必要获取
-        if(f1.exists()){
+        if (f1.exists()) {
             System.out.println(f1.isDirectory());
             System.out.println(f1.isFile());
         }
 
         File f2 = new File("D:\\git\\learning_java\\java_heima2");
-        if(f2.exists()){
+        if (f2.exists()) {
             System.out.println(f2.isDirectory()); // true
             System.out.println(f2.isFile()); // false
         }
 
         File f3 = new File("D:\\git\\learning_java\\java_heima2\\java_heima2.iml");
-        if(f3.exists()){
+        if (f3.exists()) {
             System.out.println(f3.isDirectory()); // false
             System.out.println(f3.isFile()); // true
         }
