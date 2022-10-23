@@ -17,9 +17,9 @@ public class Demo02OutputStream {
         //调用FileOutputStream对象中的方法write,把数据写入到文件中
 
         //在文件中显示100,写3个字节
-        fos.write(49); // "1"
-        fos.write(48); // "0"
-        fos.write(48); // "0"
+        // fos.write(49); // "1"
+        // fos.write(48); // "0"
+        // fos.write(48); // "0"
 
         /*
             public void write(byte[] b)：将 b.length字节从指定的字节数组写入此输出流。
@@ -37,7 +37,7 @@ public class Demo02OutputStream {
                 int off: 数组的开始索引
                 int len: 写几个字节
          */
-        fos.write(bytes, 1, 2); // BC
+        // fos.write(bytes, 1, 2); // BC
 
         /*
             写入字符的方法:可以使用String类中的方法把字符串,转换为字节数组
@@ -45,7 +45,7 @@ public class Demo02OutputStream {
          */
         byte[] bytes2 = "你好".getBytes(); // 把字符串转化为字节数组
         System.out.println(Arrays.toString(bytes2)); //[-28, -67, -96, -27, -91, -67]
-        fos.write(bytes2);
+        // fos.write(bytes2);
 
         //释放资源
         fos.close();
