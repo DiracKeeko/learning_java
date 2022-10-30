@@ -6,11 +6,11 @@ import java.io.IOException;
 /*
     在jdk1.7之前使用try catch finally 处理流中的异常
     格式:
-        try{
+        try {
             可能会产出异常的代码
-        }catch(异常类变量 变量名){
+        } catch (异常类变量 变量名){
             异常的处理逻辑
-        }finally{
+        } finally {
             一定会指定的代码
             资源释放
         }
