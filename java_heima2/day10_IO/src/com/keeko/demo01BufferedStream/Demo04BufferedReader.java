@@ -50,7 +50,7 @@ public class Demo04BufferedReader {
         System.out.println(line);*/
 
         /*
-            发下以上读取是一个重复的过程,所以可以使用循环优化
+            发现 上面的"读取行"是一个重复的过程,所以可以使用循环优化
             不知道文件中有多少行数据,所以使用while循环
             while的结束条件,读取到null结束
          */
