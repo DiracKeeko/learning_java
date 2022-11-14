@@ -30,9 +30,13 @@ import java.io.Serializable;
         Person{name='张三', age=0}
  */
 public class Person implements Serializable{
+
+    private static final long serialVersionUID = 1L; // 不管类是否修改，serialVersionUID始终不变
+
     private String name;
     // private static int age;
-    private transient int age;
+    // private transient int age;
+    public int age;
 
     public Person() {
     }
