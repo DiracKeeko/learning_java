@@ -47,6 +47,8 @@ public class TCPServer {
         //5.创建一个本地字节输出流FileOutputStream对象,构造方法中绑定要输出的目的地
         FileOutputStream fos = new FileOutputStream(file+"\\1.jpg");
 
+        System.out.println("11111111111111111111");
+
         //6.使用网络字节输入流InputStream对象中的方法read,读取客户端上传的文件
         int len =0;
         byte[] bytes = new byte[1024];
@@ -55,6 +57,7 @@ public class TCPServer {
             fos.write(bytes,0,len);
         }
 
+        System.out.println("22222222222222222222222  while死循环打印不到");
 
         //8.使用Socket对象中的方法getOutputStream,获取到网络字节输出流OutputStream对象
         //9.使用网络字节输出流OutputStream对象中的方法write,给客户端回写"上传成功"

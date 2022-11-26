@@ -43,13 +43,24 @@ public class TCPClient {
             os.write(bytes, 0, len);
         }
 
+        /*
+            解决:上传完文件,给服务器写一个结束标记
+            void shutdownOutput() 禁用此套接字的输出流。
+            对于 TCP 套接字，任何以前写入的数据都将被发送，并且后跟 TCP 的正常连接终止序列。
+         */
+        socket.shutdownOutput();
+
         //6.使用Socket中的方法getInputStream,获取网络字节输入流InputStream对象
         InputStream is = socket.getInputStream();
+
+        System.out.println("333333333333333333333");
 
         //7.使用网络字节输入流InputStream对象中的方法read读取服务回写的数据
         while ((len = is.read(bytes)) != -1) {
             System.out.println(new String(bytes, 0, len));
         }
+
+        System.out.println("444444444444444444  while死循环打印不到");
 
         //8.释放资源(FileInputStream,Socket)
         fis.close();
