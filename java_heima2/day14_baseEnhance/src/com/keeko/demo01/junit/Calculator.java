@@ -1,4 +1,4 @@
-package com.keeko.demo01Junit;
+package com.keeko.demo01.junit;
 
 
 /**
@@ -17,7 +17,7 @@ public class Calculator {
     public int add(int a, int b) {
         //int i = 3/0;
 
-        return a - b;
+        return a + b;
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.keeko.demo01Junit;
+package com.keeko.demo01.junit;
 
 public class CalculatorTest {
 
