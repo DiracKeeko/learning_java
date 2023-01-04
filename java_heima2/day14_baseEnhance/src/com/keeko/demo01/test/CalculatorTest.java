@@ -1,10 +1,31 @@
 package com.keeko.demo01.test;
 
 import com.keeko.demo01.junit.Calculator;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class CalculatorTest {
+    /**
+     * 初始化方法：
+     * 用于资源申请，所有测试方法在执行之前都会先执行该方法
+     */
+    @Before
+    public void init() {
+        System.out.println("init...");
+    }
+
+    /**
+     * 释放资源方法：
+     * 在所有测试方法执行完后，都会自动执行该方法
+     */
+    @After
+    public void close() {
+        System.out.println("close...");
+    }
+
+
     /**
      * 测试add方法
      */
@@ -16,11 +37,11 @@ public class CalculatorTest {
         Calculator c = new Calculator();
         //2.调用add方法
         int result = c.add(1, 2);
-        // System.out.println(result);
+        //System.out.println(result);
 
-        int errorResult = 4;
         //3.断言  我断言这个结果是3
-        Assert.assertEquals(errorResult, result);
+        Assert.assertEquals(3, result);
+
     }
 
     @Test
