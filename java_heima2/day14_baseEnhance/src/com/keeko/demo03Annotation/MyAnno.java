@@ -18,15 +18,15 @@ public @interface MyAnno {
 
     // void show1(); // void 不行
 
-    int value();
-
     // int age();
 
-    // Person per();
-    //
-    // MyAnno2 anno2();
-    //
-    // String[] strs();
+    int value();
+
+    Person per();
+
+    MyAnno2 anno2();
+
+    String[] strs();
 
     // String name() default "张三"; // 设置默认值
 }
