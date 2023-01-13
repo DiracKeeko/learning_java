@@ -3,7 +3,7 @@ package com.keeko.demo03Annotation;
 public @interface MyAnno {
     // 注解的本质是接口
 
-    public abstract String show();
+    // public abstract String show();
 
     // 抽象方法是注解的属性
     // 1、属性的返回值类型要求
@@ -20,11 +20,13 @@ public @interface MyAnno {
 
     int value();
 
-    Person per();
+    // int age();
 
-    MyAnno2 anno2();
+    // Person per();
+    //
+    // MyAnno2 anno2();
+    //
+    // String[] strs();
 
-    String[] strs();
-
-    String name() default "张三"; // 设置默认值
+    // String name() default "张三"; // 设置默认值
 }
