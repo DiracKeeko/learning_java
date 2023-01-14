@@ -5,10 +5,10 @@ package com.keeko.demo03Annotation;
 @MyAnno3
 public class Worker {
 
-    // @MyAnno3 // ElementType.TYPE 只能作用于类上，加了报错
+    @MyAnno3
     public String name = "ccc";
 
-    // @MyAnno3 // ElementType.TYPE 只能作用于类上，加了报错
+    @MyAnno3
     public void show() {
     }
 }

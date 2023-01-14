@@ -1,7 +1,6 @@
 package com.keeko.demo03Annotation;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 /**
  * 元注解：用于描述注解的注解
@@ -12,7 +11,18 @@ import java.lang.annotation.Target;
  * @Inherited：描述注解是否被子类继承
  */
 
-@Target(value = {ElementType.TYPE}) // 表示MyAnno3这个注解只能作用于类上
+@Target({ElementType.TYPE,ElementType.METHOD,ElementType.FIELD})
+// ↑ 表示MyAnno3这个注解 可以作用于类、方法，成员变量上 (此处省略了value)
+
+@Retention(RetentionPolicy.RUNTIME)
+// ↑ 表示被描述的注解会保留到class字节码文件中，并被JVM读取到
+
+@Documented
+// ↑ 表示将来这个注解描述的信息会被抽取到Java doc文档中
+
+@Inherited
+// ↑ 表示这个注解会被继承
+
 public @interface MyAnno3 {
 }
 
