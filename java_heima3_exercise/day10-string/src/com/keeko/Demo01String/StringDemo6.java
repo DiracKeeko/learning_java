@@ -2,6 +2,7 @@ package com.keeko.Demo01String;
 
 import java.util.Scanner;
 
+// 键盘录入一个字符串，统计该字符串中大写字母字符，小写字母字符，数字字符出现的次数(不考虑其他字符)
 public class StringDemo6 {
     public static void main(String[] args) {
         //1.键盘录入一个字符串

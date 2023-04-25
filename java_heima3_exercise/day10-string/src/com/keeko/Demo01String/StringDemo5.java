@@ -2,6 +2,7 @@ package com.keeko.Demo01String;
 
 import java.util.Scanner;
 
+// 键盘录入一个字符串，遍历字符串并打印
 public class StringDemo5 {
     public static void main(String[] args) {
         //1.键盘录入一个字符串
