@@ -2,6 +2,16 @@ package com.keeko.Demo02StringBuilder;
 
 import java.util.Scanner;
 
+/*
+* 需求：
+
+​	键盘接受一个字符串，程序判断出该字符串是否是对称字符串，并在控制台打印是或不是
+
+  	对称字符串：123321、111
+
+  	非对称字符串：123123
+* */
+
 public class StringBuilderDemo6 {
     //使用StringBuilder的场景：
     //1.字符串的拼接
