@@ -46,5 +46,9 @@ public class KeyArrToString {
         // 输出结果
         System.out.println("indexString-> " + indexString);
         // indexString-> 上证指数,沪深300,中证500,深证成指,创业板指
+
+        // 第二种获取拼接字符串的方法 (数组转字符串)
+        String indexString2 = String.join(",", keySet);
+        System.out.println("indexString2-> " + indexString2);
     }
 }
