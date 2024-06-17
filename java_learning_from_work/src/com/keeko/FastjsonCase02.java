@@ -1,4 +1,4 @@
-package com.keeko.test;
+package com.keeko;
 
 
 import com.alibaba.fastjson.JSON;
