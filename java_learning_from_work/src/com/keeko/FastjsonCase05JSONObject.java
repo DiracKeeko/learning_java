@@ -2,8 +2,9 @@ package com.keeko;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.keeko.entity.User;
 
-// 从字符串解析为 JSONObject
+//  将 JSONObject 转换为 Java 对象
 public class FastjsonCase05JSONObject {
     public static void main(String[] args) {
         String jsonString = "{\"id\":1,\"name\":\"John Doe\"}";
@@ -11,12 +12,11 @@ public class FastjsonCase05JSONObject {
         // 从字符串解析为 JSONObject
         JSONObject jsonObject = JSONObject.parseObject(jsonString);
 
-        // 获取值
-        int id = jsonObject.getInteger("id");
-        String name = jsonObject.getString("name");
+        // 将 JSONObject 转换为 Java 对象
+        User user = jsonObject.toJavaObject(User.class);
 
-        // 输出解析的值
-        System.out.println("id: " + id); // 输出: id: 1
-        System.out.println("name: " + name); // 输出: name: John Doe
+        // 输出 Java 对象的属性
+        System.out.println("id: " + user.getId()); // 输出: id: 1
+        System.out.println("name: " + user.getName()); // 输出: name: John Doe
     }
 }
