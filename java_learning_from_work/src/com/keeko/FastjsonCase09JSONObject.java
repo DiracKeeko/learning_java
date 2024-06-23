@@ -13,6 +13,7 @@ public class FastjsonCase09JSONObject {
 
         // 获取 int 类型数据
         int id = jsonObject.getIntValue("id");
+        // id =jsonObject.getInteger("id"); // 也可以用getInteger
         // 获取 long 类型数据
         long age = jsonObject.getLongValue("age");
 
