@@ -21,6 +21,11 @@ public class FundItemDo {
     public FundItemDo() {
     }
 
+    public FundItemDo(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public FundItemDo(String id, String name, BigDecimal m1Return) {
         this.id = id;
         this.name = name;
@@ -49,5 +54,10 @@ public class FundItemDo {
 
     public void setM1Return(BigDecimal m1Return) {
         this.m1Return = m1Return;
+    }
+
+    @Override
+    public String toString() {
+        return "FundItemDo{id='" + id + "', name='" + name + "'}";
     }
 }
