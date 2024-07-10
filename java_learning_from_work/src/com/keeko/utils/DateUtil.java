@@ -14,25 +14,36 @@ public class DateUtil {
         SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = null;
 
-        // Define possible input date formats
-        String[] dateFormats = {
-                "yyyy-MM-dd HH:mm:ss",
-                "yyyy-MM-dd",
-                "yyyyMMdd",
-                "yyyy/MM/dd",
-                "yyyy.MM.dd"
-        };
+        if (dateString.matches("\\d{10}")) {
+            // Convert seconds to milliseconds
+            long timestamp = Long.parseLong(dateString) * 1000;
+            date = new Date(timestamp);
+        } else if (dateString.matches("\\d{13}")) {
+            // Input is already in milliseconds
+            long timestamp = Long.parseLong(dateString);
+            date = new Date(timestamp);
+        } else {
+            // Define possible input date formats
+            String[] dateFormats = {
+                    "yyyy-MM-dd HH:mm:ss",
+                    "yyyy-MM-dd",
+                    "yyyyMMdd",
+                    "yyyy/MM/dd",
+                    "yyyy.MM.dd"
+            };
 
-        // Try to parse the input date string with each format
-        for (String format : dateFormats) {
-            try {
-                SimpleDateFormat inputFormat = new SimpleDateFormat(format);
-                date = inputFormat.parse(dateString);
-                break; // If parsing is successful, break out of the loop
-            } catch (ParseException e) {
-                // Continue to the next format if parsing fails
+            // Try to parse the input date string with each format
+            for (String format : dateFormats) {
+                try {
+                    SimpleDateFormat inputFormat = new SimpleDateFormat(format);
+                    date = inputFormat.parse(dateString);
+                    break; // If parsing is successful, break out of the loop
+                } catch (ParseException e) {
+                    // Continue to the next format if parsing fails
+                }
             }
         }
+
 
         if (date == null) {
             throw new IllegalArgumentException("Invalid date format: " + dateString);
