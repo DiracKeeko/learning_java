@@ -11,7 +11,9 @@ public class DateTransform {
                 "2023-05-06 20:23:11",
                 "20230506",
                 "2023/05/06",
-                "2023.05.06"
+                "2023.05.06",
+                // "2023.05.067", // Invalid date format: 2023.05.067
+                "2023.05.67", // Original: 2023.05.67 -> Formatted: 2023-07-06 00:00:00
         };
 
         for (String testDate : testDates) {
