@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.IOException;
@@ -61,6 +62,43 @@ public class JacksonUtil {
 
     public static ArrayNode createArrayNode() {
         return OBJECT_MAPPER.createArrayNode();
+    }
+
+    /**
+     * 将字符串解析为Json对象
+     * @param text
+     * @return ObjectNode
+     */
+    public static ObjectNode parseObject(String text) {
+        try {
+            if (text == null || text.isEmpty()) {
+                return JsonNodeFactory.instance.objectNode();
+            } else {
+                return (ObjectNode) OBJECT_MAPPER.readTree(text);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("String json deserialization exception.", e);
+        }
+    }
+
+    /**
+     * 将字符串解析为Json数组
+     * @param text
+     * @return ArrayNode
+     */
+    public static ArrayNode parseArray(String text) {
+        if (text == null || text.isEmpty()) {
+            return JsonNodeFactory.instance.arrayNode();
+        }
+
+        try {
+            // Read the JSON tree and ensure it's an ArrayNode
+            return (ArrayNode) OBJECT_MAPPER.readTree(text);
+        } catch (ClassCastException e) {
+            throw new IllegalArgumentException("The provided JSON is not an array.", e);
+        } catch (Exception e) {
+            throw new RuntimeException("JSON deserialization exception.", e);
+        }
     }
 
     public static class LocalDateTimeSerializer extends JsonSerializer<LocalDateTime> {
