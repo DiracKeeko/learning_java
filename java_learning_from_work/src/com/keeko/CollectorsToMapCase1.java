@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class CollectorsToMapProblem {
+public class CollectorsToMapCase1 {
     public static void main(String[] args) {
         List<FundItemDo> fundListOrigin = new ArrayList<>();
 

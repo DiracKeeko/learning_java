@@ -50,4 +50,13 @@ public class FundResDto {
     public void setM1Return(Double m1Return) {
         this.m1Return = m1Return;
     }
+
+    @Override
+    public String toString() {
+        return "FundResDto{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", m1Return=" + m1Return +
+                '}';
+    }
 }
