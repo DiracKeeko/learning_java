@@ -8,14 +8,18 @@ import java.util.Map;
 
 public class UrlTest {
     public static void main(String[] args) {
+        String url = "http://map.google.com";
         Map<String, String> addressMap = new HashMap<>();
         addressMap.put("city", "hz");
         addressMap.put("street", "changHe");
-        String url = "map.google.com";
         String addressUrl = UrlUtil.getUrlWithParams(url, addressMap);
-        System.out.println(addressUrl);
+        System.out.println(addressUrl); // http://map.google.com?city=hz&street=changHe
 
-        // User Mike = new User(12, "Mike");
-        // System.out.println(urlWithQuery); // www.google.com?params={id:12,name:Mike}
+        User Mike = new User(12, "Mike");
+        Map<String, Object> jsonQuery = new HashMap<>();
+        jsonQuery.put("params", Mike);
+        String urlWithQuery = UrlUtil.getUrlWithJsonParams(url, jsonQuery);
+        System.out.println(urlWithQuery); // http://map.google.com?params=%7B%22id%22:12,%22name%22:%22Mike%22%7D
+        // www.google.com?params={id:12,name:Mike} 上面一行的输出是encode之后的结果
     }
 }
