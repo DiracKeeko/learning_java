@@ -3,6 +3,7 @@ package com.keeko;
 import com.keeko.entity.User;
 import com.keeko.utils.UrlUtil;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,5 +22,12 @@ public class UrlTest {
         String urlWithQuery = UrlUtil.getUrlWithJsonParams(url, jsonQuery);
         System.out.println(urlWithQuery); // http://map.google.com?params=%7B%22id%22:12,%22name%22:%22Mike%22%7D
         // www.google.com?params={id:12,name:Mike} 上面一行的输出是encode之后的结果
+
+        Map<String, String> UserInfo = new HashMap<>();
+        UserInfo.put("id", "12");
+        UserInfo.put("name", "Mike");
+        URI finalUrl = UrlUtil.getUriTypeWithJsonParams(url, "params", UserInfo);
+        System.out.println(finalUrl);
+        // http://map.google.com?params=%7B%22name%22:%22Mike%22,%22id%22:%2212%22%7D
     }
 }

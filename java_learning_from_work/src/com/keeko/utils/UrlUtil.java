@@ -1,13 +1,11 @@
 package com.keeko.utils;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.Map;
 
 public class UrlUtil {
-    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     public static String getUrlWithParams(String url, Map<String, String> params) {
 
@@ -26,15 +24,10 @@ public class UrlUtil {
 
         for (Map.Entry<String, Object> entry : params.entrySet()) {
             String value;
-            try {
-                // Convert the object to a JSON-like string if it's not a primitive or String
-                if (entry.getValue() instanceof String || entry.getValue() instanceof Number || entry.getValue() instanceof Boolean) {
-                    value = entry.getValue().toString();
-                } else {
-                    value = OBJECT_MAPPER.writeValueAsString(entry.getValue());
-                }
-            } catch (JsonProcessingException e) {
-                throw new RuntimeException("Failed to serialize parameter: " + entry.getKey(), e);
+            if (entry.getValue() instanceof String || entry.getValue() instanceof Number || entry.getValue() instanceof Boolean) {
+                value = entry.getValue().toString();
+            } else {
+                value = JacksonUtil.toJsonString(entry.getValue());
             }
 
             // Add the parameter to the URL
@@ -42,5 +35,18 @@ public class UrlUtil {
         }
 
         return builder.toUriString();
+    }
+
+    public static URI getUriTypeWithJsonParams(String url, String key, Map<String, String> params) {
+        // 将参数对象转换为 JSON-like 字符串
+        String jsonString = JacksonUtil.toJsonString(params);
+
+        // 构建带有占位符的 URI
+        URI finalUrl = UriComponentsBuilder.fromHttpUrl(url)
+                .queryParam(key, "{json}")
+                .buildAndExpand(jsonString)
+                .toUri();
+
+        return finalUrl;
     }
 }

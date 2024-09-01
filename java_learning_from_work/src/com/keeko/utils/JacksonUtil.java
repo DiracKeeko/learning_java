@@ -101,6 +101,14 @@ public class JacksonUtil {
         }
     }
 
+    public static String toJsonString(Object object) {
+        try {
+            return OBJECT_MAPPER.writeValueAsString(object);
+        } catch (Exception e) {
+            throw new RuntimeException("Object to json string deserialization exception.", e);
+        }
+    }
+
     public static class LocalDateTimeSerializer extends JsonSerializer<LocalDateTime> {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateFormatToken);
 
