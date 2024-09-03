@@ -3,6 +3,7 @@ package com.keeko.utils;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
 import java.util.TimeZone;
 
 public class JacksonUtil {
@@ -82,6 +84,26 @@ public class JacksonUtil {
     }
 
     /**
+     * json string to object
+     *
+     * @param json json string
+     * @param type type reference
+     * @param <T>
+     * @return return parse object
+     */
+    public static <T> T parseObject(String json, TypeReference<T> type) {
+        if (StringUtils.isEmpty(json)) {
+            return null;
+        }
+        try {
+            return OBJECT_MAPPER.readValue(json, type);
+        } catch (Exception e) {
+            log.error("json to map exception!", e);
+        }
+        return null;
+    }
+
+    /**
      * 将字符串解析为Json数组
      * @param text
      * @return ArrayNode
@@ -107,6 +129,20 @@ public class JacksonUtil {
         } catch (Exception e) {
             throw new RuntimeException("Object to json string deserialization exception.", e);
         }
+    }
+
+    public static String toJsonString(Object object, SerializationFeature feature) {
+        try {
+            ObjectWriter writer = OBJECT_MAPPER.writer(feature);
+            return writer.writeValueAsString(object);
+        } catch (Exception e) {
+            throw new RuntimeException("Object to json string deserialization exception.", e);
+        }
+    }
+
+    public static Map<String, String> toMap(String json) {
+        return parseObject(json, new TypeReference<Map<String, String>>() {
+        });
     }
 
     public static class LocalDateTimeSerializer extends JsonSerializer<LocalDateTime> {
