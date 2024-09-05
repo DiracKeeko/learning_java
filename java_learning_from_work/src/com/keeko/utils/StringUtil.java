@@ -12,4 +12,18 @@ public class StringUtil {
         }
         return content.replaceAll("</?[^>]+>", "");
     }
+
+    public static String removeAllStyles(String content) {
+        // 删除所有 <style> 标签和它们的内容
+        // content = content.replaceAll("<style[^>]*>[\\s\\S]*?</style>", "");
+
+        // 删除特定的 CSS 样式
+        content = content.replaceAll("\\.paragraphFormat\\s*\\{[^}]*\\}", "");
+        content = content.replaceAll("img\\s*\\{[^}]*\\}", "");
+        content = content.replaceAll("table\\s*\\{[^}]*\\}", "");
+        content = content.replaceAll("table\\s*td\\s*\\{[^}]*\\}", "");
+
+        return content;
+    }
+
 }
