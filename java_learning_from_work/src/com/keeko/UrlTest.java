@@ -29,5 +29,15 @@ public class UrlTest {
         URI finalUrl = UrlUtil.getUriTypeWithJsonParams(url, "params", UserInfo);
         System.out.println(finalUrl);
         // http://map.google.com?params=%7B%22name%22:%22Mike%22,%22id%22:%2212%22%7D
+
+        // 创建参数映射，其中 id 现在是一个数组
+        Map<String, Object> UserInfoIds = new HashMap<>();
+        UserInfoIds.put("name", "Mike");
+        UserInfoIds.put("ids", new int[]{12, 13}); // 使用数组形式
+
+        // 生成最终的 URL
+        URI finalUrl1 = UrlUtil.getUriTypeWithJsonParamsObj(url, "params", UserInfoIds);
+        System.out.println(finalUrl1);
+        // 预期输出: http://map.google.com?params={"name": "Mike", "ids": [12, 13]}
     }
 }

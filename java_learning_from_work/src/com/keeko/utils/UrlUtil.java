@@ -49,4 +49,17 @@ public class UrlUtil {
 
         return finalUrl;
     }
+
+    public static URI getUriTypeWithJsonParamsObj(String url, String key, Map<String, Object> params) {
+        // 将参数对象转换为 JSON-like 字符串
+        String jsonString = JacksonUtil.toJsonString(params);
+
+        // 构建带有占位符的 URI
+        URI finalUrl = UriComponentsBuilder.fromHttpUrl(url)
+                .queryParam(key, "{json}")
+                .buildAndExpand(jsonString)
+                .toUri();
+
+        return finalUrl;
+    }
 }
