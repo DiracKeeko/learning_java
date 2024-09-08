@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -98,7 +99,7 @@ public class JacksonUtil {
         try {
             return OBJECT_MAPPER.readValue(json, type);
         } catch (Exception e) {
-            log.error("json to map exception!", e);
+            System.out.println("json to map exception!" + e);
         }
         return null;
     }
