@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;
@@ -81,6 +82,26 @@ public class JacksonUtil {
             }
         } catch (Exception e) {
             throw new RuntimeException("String json deserialization exception.", e);
+        }
+    }
+
+    /**
+     * json string to object
+     *
+     * @param jsonString json string
+     * @param clazz class
+     * @param <T> T
+     * @return return parse object
+     */
+    public static @Nullable
+    <T> T parseObject(String jsonString, Class<T> clazz) {
+        if (StringUtils.isEmpty(jsonString)) {
+            return null;
+        }
+        try {
+            return OBJECT_MAPPER.readValue(jsonString, clazz);
+        } catch(Exception e) {
+            throw new RuntimeException("Parse object exception", e);
         }
     }
 
