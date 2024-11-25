@@ -2,7 +2,7 @@ package com.keeko;
 
 import java.util.Optional;
 
-public class HandleNullCase02 {
+public class HandleNullCase02Optional {
     public static void main(String[] args) {
         String str = null;
         // 创建 Optional
