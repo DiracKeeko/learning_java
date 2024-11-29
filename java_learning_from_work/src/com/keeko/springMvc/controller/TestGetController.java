@@ -4,8 +4,8 @@ package com.keeko.springMvc.controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/test")
-public class TestController {
+@RequestMapping("/api/test/get")
+public class TestGetController {
     // 用 RequestMapping 处理GET请求
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public void list() {
@@ -13,6 +13,7 @@ public class TestController {
     }
 
     // 用 GetMapping 处理GET请求
+    // @GetMapping("/rank") // 也可以
     @GetMapping(value = "/rank")
     public void rank() {
         System.out.println("rank");
