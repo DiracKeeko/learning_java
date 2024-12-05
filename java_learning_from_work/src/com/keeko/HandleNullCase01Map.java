@@ -2,7 +2,7 @@ package com.keeko;
 
 import java.util.*;
 
-public class HandleNullCase01 {
+public class HandleNullCase01Map {
     public static void main(String[] args) {
 
         // Map中如果取值可能为空，可以用 map.getOrDefault() 来处理
