@@ -10,7 +10,7 @@ import org.elasticsearch.search.sort.SortOrder;
 public class EsCase01 {
 
     /**
-     * 策略观点
+     * ES表，字段信息
      */
     public static final String FUND_ES_INDEX = "fund_opinion";
     public static final String FUND_ES_INDEX_TIME = "release_day";
