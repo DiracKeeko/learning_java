@@ -58,5 +58,23 @@ public class EsCase03 {
 
         // 发送请求 ( ElasticSearch 7.6 的写法)
         // SearchResponse response = esClient.search(searchRequest, RequestOptions.DEFAULT);
+
+        /*
+        // 构建 options 和 summary 都不为空的条件
+        BoolQueryBuilder mustQuery = QueryBuilders.boolQuery()
+                .must(QueryBuilders.existsQuery("options"))
+                .must(QueryBuilders.existsQuery("summary"));
+
+        // manualHeat 字段必须为空
+        queryBuilder.must(mustQuery) // 两者都不为空
+                .mustNot(QueryBuilders.existsQuery("manualHeat")); // manualHeat 为空
+
+        // GPT说 上下两种写法都可以，没有实践确认
+        BoolQueryBuilder mustQuery = QueryBuilders.boolQuery()
+                .must(QueryBuilders.existsQuery("options"))
+                .must(QueryBuilders.existsQuery("summary"))
+                .mustNot(QueryBuilders.existsQuery("manualHeat"));
+        queryBuilder.must(mustQuery);
+        */
     }
 }
