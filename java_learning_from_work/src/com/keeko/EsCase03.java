@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-public class EsCase02 {
+public class EsCase03 {
 
     /**
      * ES表，字段信息
@@ -25,8 +25,7 @@ public class EsCase02 {
 
     }
 
-    public void esSearch02() {
-
+    public void esSearch03() {
         /*
         // 创建一个有时间范围查询，有条件查询的ES请求
         final LocalDateTime endTime = LocalDate.now().atTime(LocalTime.MAX);
@@ -36,12 +35,16 @@ public class EsCase02 {
         RangeQueryBuilder rangeQuery = QueryBuilders.rangeQuery(FUND_ES_INDEX).gte(startTime).lte(endTime);
         queryBuilder = QueryBuilders.boolQuery().must(rangeQuery);
 
-        // options, summary, coreList 三者至少有一个不为空，才会被选入
-        BoolQueryBuilder shouldQuery = QueryBuilders.boolQuery()
-                .should(QueryBuilders.existsQuery("options"))
-                .should(QueryBuilders.existsQuery("summary"))
-                .should(QueryBuilders.existsQuery("coreList"));
-        queryBuilder.must(shouldQuery);
+        // 更改查询条件 options, summary 两者都不为空，manualHeat字段必须为空
+
+        // 构建 options 和 summary 都不为空的条件
+        BoolQueryBuilder mustQuery = QueryBuilders.boolQuery()
+                .must(QueryBuilders.existsQuery("options"))
+                .must(QueryBuilders.existsQuery("summary"));
+
+        // manualHeat 字段必须为空
+        queryBuilder.must(mustQuery) // 两者都不为空
+                .mustNot(QueryBuilders.existsQuery("manualHeat")); // manualHeat 为空
 
         // 会议热度从高到低(降序)，会议时间从新到旧(降序) 取5条
         final int ES_QUERY_SIZE = 5;
