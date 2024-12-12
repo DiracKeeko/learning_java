@@ -31,14 +31,15 @@ public class DateFormatWrongCase {
 
         /*
             注意:
-                DD使用时还有 DateTimeFormatter的最大宽度边界 问题
+                DD使用时还有 DateTimeFormatter的最大宽度边界问题
 
-                yyyy-MM-DD中的DD代表一年中的第几天（Day of Year），如果DD的值 > 99，例如111)
-                "111" 宽度超过了默认DateTimeFormatter的最大宽度（2位），因此会抛出DateTimeException。
+                yyyy-MM-DD中的DD代表一年中的第几天（Day of Year），如果DD的值 > 99，例如100
+                "100" 宽度超过了默认DateTimeFormatter的最大宽度（2位），因此会抛出DateTimeException。
+
+                DateTimeFormatter的宽度限制是内部实现的一部分，无法修改默认DateTimeFormatter的最大宽度（2位）
 
                 LocalDate.of(2024, 4, 8); // 使用 yyyy-MM-DD 格式化的结果: 2024-04-99
-
-                LocalDate.of(2024, 4, 9); // 使用 yyyy-MM-DD 格式化
+                LocalDate.of(2024, 4, 9); // 使用 yyyy-MM-DD 格式化  2024年4月9日是2024年的第100天 "100"超出了两位宽度
                     抛出异常 java.time.DateTimeException: Field DayOfYear cannot be printed as the value 100 exceeds the maximum print width of 2
          */
     }
