@@ -23,7 +23,7 @@ public class TestPostController {
     /*
         说明：
         @PostMapping 是基于 @RequestMapping 实现的，功能上没有本质区别。以下两个注解的作用完全等价：
-
+            // case2.3
             @RequestMapping(value = "/list", method = RequestMethod.POST)
 
             @PostMapping(value = "/list")
@@ -34,17 +34,27 @@ public class TestPostController {
             优先使用@PostMapping
     */
 
-    // case1
+    // case2.1
     // @PostMapping + @RequestBody 接收参数
-    @PostMapping("/add")
+    @PostMapping(value = "/add")
     public void add(@RequestBody User userRequest) {
         System.out.println("Received User Info:");
         System.out.println("name" + userRequest.getName());
         System.out.println("id" + userRequest.getId());
     }
 
+    // case2.2
     /*
-    // case2
+    @PostMapping("/add")
+    public void add(@RequestBody User userRequest) {
+        System.out.println("Received User Info:");
+        System.out.println("name" + userRequest.getName());
+        System.out.println("id" + userRequest.getId());
+    }
+    */
+
+    /*
+    // case2-f1
     // @PostMapping + @RequestParam 接收参数  (不建议使用)
     // 使用 @PostMapping 接收表单参数
     @PostMapping("/addForm")
@@ -61,10 +71,10 @@ public class TestPostController {
 
 
     /*
-    // case3
+    // case3.1-f2
     // 使用 @PostMapping 接收路径参数  (与 @RequestBody 搭配使用)
     @PostMapping("/update/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable Long id, @RequestBody User userRequest) {
+    public ResponseEntity<String> updateUser(@PathVariable Integer id, @RequestBody User userRequest) {
         System.out.println("Updating User ID: " + id);
         System.out.println("New Name: " + userRequest.getName());
         return ResponseEntity.ok("User updated successfully");

@@ -13,7 +13,7 @@ public class TestGetController {
     }
 
     // 用 GetMapping 处理GET请求
-    // @GetMapping("/rank") // 也可以
+    // @GetMapping("/rank") // 也可以正常工作   属性名为 value 时，可以省略书写 "value ="
     @GetMapping(value = "/rank")
     public void rank() {
         System.out.println("rank");
@@ -22,7 +22,7 @@ public class TestGetController {
     /*
         说明：
         @GetMapping 是基于 @RequestMapping 实现的，功能上没有本质区别。以下两个注解的作用完全等价：
-
+            // case1.3
             @RequestMapping(value = "/list", method = RequestMethod.GET)
 
             @GetMapping(value = "/list")
@@ -36,11 +36,21 @@ public class TestGetController {
     */
 
 
+    // case1.1
+    // @GetMapping + @RequestParam 接收参数
     // 通过 @RequestParam 获取 GET 请求中的 query 参数 1个参数;  ( /productRank?type=fund )
     @GetMapping(value = "/productRank")
     public void productRank(@RequestParam(value = "type") String type) {
         System.out.println("type ->" + type);
     }
+
+    /*
+    // case1.2
+    @GetMapping("/productRank") // 属性名为 value 时，可以省略书写 "value ="
+    public void productRank(@RequestParam(value = "type") String type) {
+        System.out.println("type ->" + type);
+    }
+    */
 
     // 通过 @RequestParam 获取 GET 请求中的 query 参数 2个参数; /productDetail?type=fund&id=111
     @GetMapping(value = "/productDetail")
