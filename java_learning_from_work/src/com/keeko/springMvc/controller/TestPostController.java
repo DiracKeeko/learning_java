@@ -69,18 +69,6 @@ public class TestPostController {
     }
      */
 
-
-    /*
-    // case3.1-f2
-    // 使用 @PostMapping 接收路径参数  (与 @RequestBody 搭配使用)
-    @PostMapping("/update/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable Integer id, @RequestBody User userRequest) {
-        System.out.println("Updating User ID: " + id);
-        System.out.println("New Name: " + userRequest.getName());
-        return ResponseEntity.ok("User updated successfully");
-    }
-     */
-
     /*
         其他说明：
             1. @PostMapping 也可以像 @GetMapping 一样用 @RequestParam 接收url中query类型的参数 但这没有意义
